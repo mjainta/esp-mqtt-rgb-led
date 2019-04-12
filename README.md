@@ -84,6 +84,12 @@ I'm using ESP8266-01 microcontrollers for my lights because they are so cheap an
 4. Save the configuration file as `config.h`.
 5. Open the `.ino` file in the Arduino IDE and upload to an ESP with the correct connections.
 
+#### Work with the ESP32
+
+Using the ESP32, `analogWrite()` is not implemented anymore.
+To make this library work you need to install the additional library [ESP32_AnalogWrite](https://github.com/ERROPiX/ESP32_AnalogWrite).
+It provides the `analogWrite()` function for the ESP32 so we don´t have much else to change to work with the ESP32 instead of the ESP8266.
+
 #### About the `DEPRECATED` Folder
 Originally, there were separate Arduino sketches for each of the supported light types. This quickly became redundant and hard-to-maintain, so the new, unified sketch was created.
 

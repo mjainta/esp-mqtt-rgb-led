@@ -12,11 +12,12 @@
 
 // Set configuration options for LED type, pins, WiFi, and MQTT in the following file:
 #include "config.h"
+#include "analogWrite.h"
 
 // https://github.com/bblanchon/ArduinoJson
 #include <ArduinoJson.h>
 
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 
 // http://pubsubclient.knolleary.net/
 #include <PubSubClient.h>
@@ -76,6 +77,8 @@ const byte colors[][4] = {
 };
 const int numColors = 7;
 
+int LED_BUILTIN = 2;
+
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -102,8 +105,6 @@ void setup() {
     default: // Other options (like -1) are ignored.
       break;
   }
-
-  analogWriteRange(255);
 
   if (CONFIG_DEBUG) {
     Serial.begin(115200);
